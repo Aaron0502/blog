@@ -4,6 +4,8 @@ import Blog, { fileMap } from './myBlog'
 import MdRender from './myBlog/MdRender'
 import './App.css';
 
+const PREFIX = process.env.PUBLIC_URL
+
 function AppTEST(props: RouteComponentProps) {
   return (
     <ul className="App">
@@ -13,7 +15,7 @@ function AppTEST(props: RouteComponentProps) {
 
           return prev.concat(fileArr.map(fileName => {
             return <li key={fileName}>
-              <Link to={`/myblog/${category}/${fileName}`}>{fileName}</Link>
+              <Link to={`${PREFIX}/myblog/${category}/${fileName}`}>{fileName}</Link>
             </li>
           }
           ))
@@ -25,8 +27,8 @@ function AppTEST(props: RouteComponentProps) {
 
 function App() {
   return <Router>
-    <AppTEST path="/" />
-    <Blog path="/myblog" >
+    <AppTEST path={`${PREFIX}/`} />
+    <Blog path={`${PREFIX}/myblog`}>
       <MdRender path=":category/:name" />
     </Blog>
   </Router >
