@@ -13,7 +13,7 @@ function AppTEST(props: RouteComponentProps) {
 
           return prev.concat(fileArr.map(fileName => {
             return <li key={fileName}>
-              <Link to={`/blog/${category}/${fileName}`}>{fileName}</Link>
+              <Link to={`/myblog/${category}/${fileName}`}>{fileName}</Link>
             </li>
           }
           ))
@@ -26,7 +26,7 @@ function AppTEST(props: RouteComponentProps) {
 function App() {
   return <Router>
     <AppTEST path="/" />
-    <Blog path="/blog" >
+    <Blog path="/myblog" >
       <MdRender path=":category/:name" />
     </Blog>
   </Router >
