@@ -32,7 +32,7 @@ function MdRender(props: RouteComponentProps) {
   import(`./md/${params.category}/${params.name}.md`).then(file => {
     changeBlog(file.default)
   })
-  
+
   return <div dangerouslySetInnerHTML={{ __html: md.render(blog) }}>
   </div>
 }
