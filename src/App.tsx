@@ -12,7 +12,6 @@ function AppTEST(props: RouteComponentProps) {
           const fileArr: string[] = fileMap[category]
 
           return prev.concat(fileArr.map(fileName => {
-            console.log('haha', fileName)
             return <li key={fileName}>
               <Link to={`/blog/${category}/${fileName}`}>{fileName}</Link>
             </li>
