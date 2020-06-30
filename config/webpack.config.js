@@ -658,7 +658,7 @@ module.exports = function(webpackEnv) {
           formatter: isEnvProduction ? typescriptFormatter : undefined,
         }),
         new ExtractMarkdownDetail({
-          dir: path.resolve(__dirname, "../src/myBlog/md"),
+          dir: path.resolve(__dirname, "../src/views/myBlog/md"),
           varName: "BLOG_SET"
         }),
       isAnalyze && new BundleAnalyzerPlugin(),

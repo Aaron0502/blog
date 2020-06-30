@@ -190,3 +190,7 @@ export default {
 发布的页面可以在 page平台-我的发布 中查看
 - dev: http://page.shangou.dev.sankuai.com
 - prod: https://page.sankuai.com
+
+## 图片
+
+<img src="../img/test.png" loading="lazy" alt="test">

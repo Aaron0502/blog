@@ -9,8 +9,8 @@ hljs.registerLanguage('xml', html);
 hljs.registerLanguage('typescript', typescript);
 
 const translateMdToHTML: MarkdownIt = new MarkdownIt({
+  html: true,
   highlight: function (str: string, lang: string) {
-    // console.log('haha', lang, hljs.highlight)
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre><code class="hljs">${hljs.highlight(lang, str, true).value}</code></pre>`
@@ -21,5 +21,7 @@ const translateMdToHTML: MarkdownIt = new MarkdownIt({
     return '<pre ><code class="hljs">' + translateMdToHTML.utils.escapeHtml(str) + '</code></pre>'
   }
 })
+
+translateMdToHTML.enable('image')
 
 export default translateMdToHTML

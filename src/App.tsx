@@ -1,9 +1,7 @@
 import React from 'react';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom'
-import Blog from './myBlog'
+import Blog from './views/myBlog'
 import './App.css';
-
-// const PREFIX = process.env.PUBLIC_URL
 
 const generateNav = function (arr: any, result = []) {
   return arr.reduce((prev: React.ReactElement[], blogSet: any) => {
