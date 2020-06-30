@@ -1,10 +1,9 @@
 <!--
  * @Author: chenwen11
  * @Date: 2020-06-27 17:15:24
- * @LastEditTime: 2020-06-30 14:15:44
+ * @LastEditTime: 2020-06-30 17:19:53
  * @Description: 
 --> 
-# PAGE平台对外服务前端通信sdk
 
 > 底层基于postMessage实现通信，未做ie兼容性处理
 
