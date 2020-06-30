@@ -1,25 +1,31 @@
 import React from 'react';
 import { Link, Router, RouteComponentProps } from '@reach/router'
-import Blog, { fileMap } from './myBlog'
-import MdRender from './myBlog/MdRender'
+import Blog from './myBlog'
+import RenderMd from './myBlog/RenderMd/index'
 import './App.css';
 
 const PREFIX = process.env.PUBLIC_URL
+
+const generateNav = function (arr: any, result = []) {
+  return arr.reduce((prev: React.ReactElement[], blogSet: any) => {
+    if (('name' in blogSet) && ('path' in blogSet)) {
+      const { name, path } = blogSet
+      prev.push(<li key={path}>
+        <Link to={`${PREFIX}/myblog${path}`}>{name}</Link>
+      </li>)
+    } else {
+      generateNav(Object.values(blogSet)[0], result)
+    }
+    return prev
+  }, result)
+}
+
 
 function AppTEST(props: RouteComponentProps) {
   return (
     <ul className="App">
       {
-        Object.keys(fileMap).reduce((prev: React.ReactElement[], category: string) => {
-          const fileArr: string[] = fileMap[category]
-
-          return prev.concat(fileArr.map(fileName => {
-            return <li key={fileName}>
-              <Link to={`${PREFIX}/myblog/${category}/${fileName}`}>{fileName}</Link>
-            </li>
-          }
-          ))
-        }, [])
+        generateNav(BLOG_SET)
       }
     </ul>
   );
@@ -29,7 +35,8 @@ function App() {
   return <Router>
     <AppTEST path={`${PREFIX}/`} />
     <Blog path={`${PREFIX}/myblog`}>
-      <MdRender path=":category/:name" />
+      <RenderMd path=":first/:second" />
+      <RenderMd path=":first/:second/:third" />
     </Blog>
   </Router >
 }
