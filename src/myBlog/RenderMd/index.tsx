@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { RouteComponentProps, useParams } from '@reach/router'
+import { useParams } from 'react-router-dom'
 import translateMdToHTML from './util'
 import 'highlight.js/styles/github.css';
 import './index.scss'
@@ -10,7 +10,7 @@ interface Params {
   third?: string
 }
 
-function RenderMd(props: RouteComponentProps) {
+function RenderMd(props: Params) {
   const [blog, changeBlog] = useState('')
   const { first, second, third }: Params = useParams()
 
